@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="32579" started-at="2021-04-30T18:32:42 IST" finished-at="2021-04-30T18:33:15 IST">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="32579" started-at="2021-04-30T18:32:42 IST" finished-at="2021-04-30T18:33:15 IST">
+      <class name="testCases.TC_01">
+        <test-method status="PASS" signature="startup()[pri:0, instance:testCases.TC_01@3891771e]" name="startup" is-config="true" duration-ms="25307" started-at="2021-04-30T18:32:42 IST" finished-at="2021-04-30T18:33:07 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startup -->
+        <test-method status="PASS" signature="AppNameExistOnScreen()[pri:0, instance:testCases.TC_01@3891771e]" name="AppNameExistOnScreen" duration-ms="3901" started-at="2021-04-30T18:33:07 IST" finished-at="2021-04-30T18:33:11 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AppNameExistOnScreen -->
+        <test-method status="PASS" signature="showtext()[pri:0, instance:testCases.TC_01@3891771e]" name="showtext" duration-ms="2808" started-at="2021-04-30T18:33:11 IST" finished-at="2021-04-30T18:33:14 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- showtext -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:testCases.TC_01@3891771e]" name="teardown" is-config="true" duration-ms="477" started-at="2021-04-30T18:33:14 IST" finished-at="2021-04-30T18:33:15 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- testCases.TC_01 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
