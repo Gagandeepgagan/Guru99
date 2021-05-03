@@ -12,22 +12,22 @@ import baseClasses.base;
 import io.appium.java_client.android.Activity;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
-import pageObjects.Page1;
+import pageObjects.Page;
 
-public class TC_01 extends base {
+public class TC extends base {
  
 	private final String ACTIVITY = "com.guru99app.MainActivity";
 	private final String PACKAGE = "com.guru99app";
 
 	@BeforeTest
 	public void startup() throws IOException, InterruptedException {
-		AndroidDriver<AndroidElement> driver = capabilities("guru99App");
+		AndroidDriver<AndroidElement> driver = capabilities("vectorapp");
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 	}
 
 	@Test
 	public void AppNameExistOnScreen() {
-		Page1 page1=new Page1(driver);
+		Page page1=new Page(driver);
 		driver.startActivity(new Activity(PACKAGE, ACTIVITY));
 		String appname = page1.appname().getText();
 		System.out.println(appname);
@@ -37,7 +37,7 @@ public class TC_01 extends base {
 
 	@Test
 	public void showtext() {
-		Page1 page1=new Page1(driver);
+		Page page1=new Page(driver);
 		page1.textbox().sendKeys("test");
 		page1.showtextbtn().click();
 		Assert.assertEquals("test", page1.textview().getText());
