@@ -43,11 +43,12 @@ public class base {
 
 		capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "appium");
 		capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 14);
-
+		//capabilities.setCapability("noReset", "true");
+		//capabilities.setCapability("fullReset", "false");
 		capabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
 		driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
+driver.resetApp();
 		return driver;
 	}
 
