@@ -134,5 +134,19 @@ public class Page1 extends base{
 	public WebElement interviewAns() {
 		return interviewAns;
 	}
-
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Course List']")
+	public WebElement CourseList;
+	
+	public WebElement CourseList() {
+		return CourseList;
+	}
+	
+	@AndroidFindBy(id = "com.vector.guru99:id/lesson_title")
+	public WebElement LessonTitle;
+	
+	public WebElement LessonTitle() {
+		return LessonTitle;
+	}
+	
+	
 }
