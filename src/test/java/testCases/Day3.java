@@ -39,33 +39,39 @@ public class Day3 extends base {
 	@Test(enabled = true)
 	public void test1() {
 		driver.startActivity(new Activity(PACKAGE, ACTIVITY));
-		/* verification1- Interview exist and is clickable */
-		if (page1.interview().isDisplayed()&&page1.interview().isEnabled()) {
-			System.out.println("Interview exist and is clickable");
-			page1.interview().click();
+		/* verification1- Quiz exist and is clickable */
+		if (page1.quiz().isDisplayed()&&page1.quiz().isEnabled()) {
+			System.out.println("Quiz exist and is clickable");
+			page1.quiz().click();
 		}
+		util.scrollToText("Quality Center");
+		util.textCLick("Quality Center");
 		
-		
-		/* Select Java-Struts */
-		util.scrollToText("JAVA");
-		util.textCLick("JAVA");
-		page1.javaOptionsList().get(0).click();
-		
-		/* verification 2- Answer is displayed */
-		System.out.println(" Question :  "+ page1.interviewQues().getText());
-		page1.showAnswer().click();
-		if (page1.interviewAns().isDisplayed()) {
-			System.out.println(" Answer :  "+ page1.interviewAns().getText());
+		/* verification 2- Quix is opened and questions content is displayed */
+		if (page1.quiz_timer().isDisplayed()) {
+			System.out.println("Quiz is opened");
 		}else {
-			System.out.println("Answer is not displayed");
-		}
-			
-		/* Verification 3- Next question is displayed */
+			System.out.println("Quiz is not opened");	}
+		
+		/* verification 3- Questions content is displayed */
+		
+		/* Select correct answer and click next */
+		System.out.println(" First Question :  "+ page1.question().getText());
+		System.out.println("Time Remaining:  "+ page1.quiz_timer().getText());
+		page1.answer2().click();
 		page1.nextBtn().click();
-		if (page1.interviewQues().isDisplayed()) {
-			System.out.println(" Question :  "+ page1.interviewQues().getText());
+		/* Select wrong answer and click finish */
+		System.out.println("Second Question :  "+ page1.question().getText());
+		System.out.println("Time Remaining:  "+page1.quiz_timer().getText());
+		page1.answer1().click();
+		page1.finishBtn().click();
+		
+		/* Verification 4- verify the scores displayed on Results Page */
+		if(page1.result().isDisplayed())
+		{
+			System.out.println(" Test Results: "+page1.score().getText());
 		}else {
-			System.out.println("Question is not displayed");
+			System.out.println("result not displayed.");
 		}
 		
 	}

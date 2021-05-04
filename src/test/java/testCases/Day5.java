@@ -21,7 +21,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import pageObjects.Page1;
 
-public class Day4 extends base {
+public class Day5 extends base {
 
 	private final String ACTIVITY = "com.vector.guru99.BaseActivity";
 	private final String PACKAGE = "com.vector.guru99";
@@ -39,33 +39,32 @@ public class Day4 extends base {
 	@Test(enabled = true)
 	public void test1() {
 		driver.startActivity(new Activity(PACKAGE, ACTIVITY));
-		/* verification1- Interview exist and is clickable */
-		if (page1.interview().isDisplayed()&&page1.interview().isEnabled()) {
-			System.out.println("Interview exist and is clickable");
-			page1.interview().click();
-		}
+		/* click on  CourseList*/
+		page1.CourseList().click();
 		
 		
-		/* Select Java-Struts */
-		util.scrollToText("JAVA");
-		util.textCLick("JAVA");
-		page1.javaOptionsList().get(0).click();
+		/* Select PHP */
+		util.scrollToText("PHP");
+		util.textCLick("PHP");
+		/* Click on Lesson1 */
+		page1.SAP_BI_List().get(0).click();
 		
-		/* verification 2- Answer is displayed */
-		System.out.println(" Question :  "+ page1.interviewQues().getText());
-		page1.showAnswer().click();
-		if (page1.interviewAns().isDisplayed()) {
-			System.out.println(" Answer :  "+ page1.interviewAns().getText());
+		/* verification 1- verify title of lesson1*/
+		if (page1.LessonTitle().isDisplayed()) {
+			System.out.println(" Title of Lesson 1 :  "+ page1.LessonTitle().getText());
+			Assert.assertEquals(page1.LessonTitle().getText(), "What is PHP? Write your first PHP Program");
 		}else {
-			System.out.println("Answer is not displayed");
+			System.out.println("Title is not displayed");
 		}
-			
-		/* Verification 3- Next question is displayed */
+		/* Click on next button */
+		
+		page1.nextBtn();
+		/* Verification 2-verify title of lesson2 */
 		page1.nextBtn().click();
-		if (page1.interviewQues().isDisplayed()) {
-			System.out.println(" Question :  "+ page1.interviewQues().getText());
+		if (page1.LessonTitle().isDisplayed()) {
+			System.out.println(" Title of Lesson 2 :  "+ page1.LessonTitle().getText());
 		}else {
-			System.out.println("Question is not displayed");
+			System.out.println("Title is not displayed");
 		}
 		
 	}
